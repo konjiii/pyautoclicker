@@ -207,7 +207,7 @@ if __name__ == "__main__":
     app = autoclicker(root)
     root.mainloop()
     # kill the backend threads when the app is closed
-    app.backend.kill()
+    app.backend.stop()
     # stop the keyboard listener
     app.listener.stop()
 
