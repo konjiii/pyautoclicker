@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 import os
 from pynput import keyboard
-import ctypes as ct
+# import ctypes as ct
 
 # create settings.txt if it doesn't exist
 if not os.path.exists("settings.txt"):
@@ -191,14 +191,14 @@ class autoclicker(tk.Frame):
     def configure_title_bar(self, window):
         """configure the title bar of the window"""
         window.update()
-        DWMWA_USE_IMMERSIVE_DARK_MODE = 20
-        set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
-        get_parent = ct.windll.user32.GetParent
-        hwnd = get_parent(window.winfo_id())
-        rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
-        value = 2
-        value = ct.c_int(value)
-        set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
+        # DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+        # set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
+        # get_parent = ct.windll.user32.GetParent
+        # hwnd = get_parent(window.winfo_id())
+        # rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
+        # value = 2
+        # value = ct.c_int(value)
+        # set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
         window.iconphoto(False, tk.PhotoImage(file="textures\\icon.png"))
 
 
