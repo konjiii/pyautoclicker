@@ -20,7 +20,7 @@ echo "building application..."
 .\python\Scripts\pyinstaller.exe .\main.py --noconfirm --onefile --windowed --icon .\textures\icon.ico
 
 echo "cleaning up..."
-mv .\dist\main.exe .\autoclicker.exe
+mv .\dist\main.exe .\pyautoclicker.exe
 rm -r -Force dist
 rm -r -Force build
 rm -r -Force main.spec
@@ -36,4 +36,4 @@ while($true) {
 }
 rm -r -Force python
 rm -r -Force python-3.13.2-amd64.exe
-echo "build finished. resulting binary is autoclicker.exe"
+echo "build finished. resulting binary is pyautoclicker.exe"
