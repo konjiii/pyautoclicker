@@ -10,7 +10,8 @@ if not os.path.exists("settings.txt"):
     with open("settings.txt", "w") as f:
         f.write("click_interval=1000\n")
         # f.write("toggle_bind=keyboard.Key.f6\n")
-        
+
+
 class autoclicker(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
@@ -68,7 +69,13 @@ class autoclicker(tk.Frame):
         self.running = tk.BooleanVar()
         self.running.set(True)
 
-        self.btoggle = ttk.Checkbutton(self.frametoggle, textvariable=self.toggle, style="Toggle.TButton", variable=self.running, command=self.toggle_loop_button)
+        self.btoggle = ttk.Checkbutton(
+            self.frametoggle,
+            textvariable=self.toggle,
+            style="Toggle.TButton",
+            variable=self.running,
+            command=self.toggle_loop_button,
+        )
         self.btoggle.grid(row=0, column=0)
 
         self.group = ttk.Labelframe
@@ -183,11 +190,11 @@ class autoclicker(tk.Frame):
         if not settings["click_interval"].isnumeric():
             settings["click_interval"] = 1000
             with open("settings.txt", "w") as f:
-                f.write(f"click_interval=1000\n")
+                f.write("click_interval=1000\n")
                 f.write(f"toggle_bind={settings['toggle_bind']}\n")
 
         return settings
-    
+
     def configure_title_bar(self, window):
         """configure the title bar of the window"""
         window.update()
@@ -199,7 +206,7 @@ class autoclicker(tk.Frame):
         # value = 2
         # value = ct.c_int(value)
         # set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))
-        window.iconphoto(False, tk.PhotoImage(file="textures\\icon.png"))
+        window.iconphoto(False, tk.PhotoImage(file="textures/icon.png"))
 
 
 if __name__ == "__main__":
@@ -210,4 +217,3 @@ if __name__ == "__main__":
     app.backend.stop()
     # stop the keyboard listener
     app.listener.stop()
-
